@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#e1ad24" />
+    <title>TamBayts | Campus food made easy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="hero">
+        <a class="brand" href="#top" aria-label="TamBayts home">TamBayts</a>
+      </header>
+
+      <section class="content" id="top">
+        <label class="search-box" for="food-search">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="11" cy="11" r="6.5"></circle>
+            <path d="m16 16 5 5"></path>
+          </svg>
+          <input
+            id="food-search"
+            type="search"
+            placeholder="Search for food or drinks..."
+            autocomplete="off"
+          />
+        </label>
+
+        <div class="category-row" aria-label="Food categories">
+          <button class="category active" data-category="all">
+            <img
+              src="https://images.unsplash.com/photo-1529042410759-befb1204b468?auto=format&fit=crop&w=180&q=80"
+              alt="A rice meal"
+            />
+            <span>All</span>
+          </button>
+          <button class="category" data-category="drinks">
+            <img
+              src="https://images.unsplash.com/photo-1629203851122-3726ecdf080e?auto=format&fit=crop&w=180&q=80"
+              alt="Colorful bottled drinks"
+            />
+            <span>Drinks</span>
+          </button>
+          <button class="category" data-category="healthy">
+            <img
+              src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=180&q=80"
+              alt="Fresh salad"
+            />
+            <span>Healthy</span>
+          </button>
+          <button class="category" data-category="meals">
+            <img
+              src="https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=180&q=80"
+              alt="Chicken and noodles"
+            />
+            <span>Meals</span>
+          </button>
+          <button class="category" data-category="snacks">
+            <img
+              src="https://images.unsplash.com/photo-1606312619070-d48b4c652a52?auto=format&fit=crop&w=180&q=80"
+              alt="Snack chips"
+            />
+            <span>Snacks</span>
+          </button>
+          <button class="category" data-category="pasta">
+            <img
+              src="https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?auto=format&fit=crop&w=180&q=80"
+              alt="Spaghetti"
+            />
+            <span>Pasta</span>
+          </button>
+        </div>
+      </section>
+
+      <section class="menu-section" aria-labelledby="recommended-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Campus picks</p>
+            <h1 id="recommended-title">Recommended!</h1>
+          </div>
+          <button class="filter-button" id="filter-button" type="button">Filters <span>⌄</span></button>
+        </div>
+        <p class="results-message" id="results-message" aria-live="polite"></p>
+        <div class="food-grid" id="food-grid"></div>
+      </section>
+
+      <nav class="bottom-nav" aria-label="Main navigation">
+        <a class="nav-item" href="profile.html" aria-label="Profile">
+          <span>◉</span>
+        </a>
+        <a class="nav-item" href="profile.html#favorites" aria-label="Favorites">
+          <span>★</span>
+        </a>
+        <a class="nav-item active" href="home.html" aria-label="Home">
+          <span>⌂</span>
+        </a>
+        <a class="nav-item" href="orders.html" aria-label="Orders">
+          <span>▤</span>
+        </a>
+        <a class="nav-item cart-nav" href="cart.html" aria-label="Cart">
+          <span>🛒</span>
+          <b id="cart-badge">0</b>
+        </a>
+      </nav>
+    </main>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="app-data.js"></script>
+    <script src="index.js"></script>
+  </body>
+</html>

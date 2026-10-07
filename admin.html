@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f5f0">
+  <title>TamBayts | Admin dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+  <div class="admin-layout">
+    <aside class="sidebar">
+      <a class="wordmark" href="index.html"><span class="brand-mark">T</span> TamBayts</a>
+      <p class="side-label">MANAGEMENT</p>
+      <a class="side-link active" href="#overview"><span>⌂</span> Overview</a>
+      <a class="side-link" href="#orders"><span>▤</span> Orders <b id="nav-order-count">0</b></a>
+      <a class="side-link" href="#menu"><span>▦</span> Menu</a>
+      <a class="side-link" href="#students"><span>♙</span> Students</a>
+      <div class="sidebar-bottom"><div class="admin-avatar">AD</div><div><strong>Administrator</strong><small>Web management</small></div></div>
+    </aside>
+
+    <main class="dashboard" id="overview">
+      <header class="topbar"><div><p class="eyebrow">TAMBAYTS MANAGEMENT</p><h1>Admin dashboard</h1></div><a class="view-site" href="index.html">View student site <span>↗</span></a></header>
+      <section class="welcome"><div><p class="welcome-kicker">CAMPUS CANTEEN</p><h2>Good day, Admin</h2><p>Manage orders and keep the student menu up to date.</p></div><div class="welcome-icon">☀</div></section>
+
+      <section class="stats" aria-label="Store summary">
+        <article class="stat-card"><div class="stat-icon orders-icon">▤</div><span>Orders today</span><strong id="stat-orders">0</strong><small id="stat-orders-note">No orders yet</small></article>
+        <article class="stat-card"><div class="stat-icon revenue-icon">₱</div><span>Sales today</span><strong id="stat-sales">₱0</strong><small>From recorded orders</small></article>
+        <article class="stat-card"><div class="stat-icon menu-icon">▦</div><span>Available menu items</span><strong id="stat-menu">0</strong><small id="stat-menu-note">0 unavailable</small></article>
+        <article class="stat-card"><div class="stat-icon student-icon">♙</div><span>Student accounts</span><strong id="stat-students">0</strong><small>Recorded in this browser</small></article>
+      </section>
+
+      <section class="panel order-panel" id="orders">
+        <div class="panel-heading"><div><p class="eyebrow">LIVE QUEUE</p><h2>Recent orders</h2></div><span class="live-indicator"><i></i> Order queue</span></div>
+        <div class="table-wrap"><table><thead><tr><th>ORDER</th><th>STUDENT</th><th>ITEMS</th><th>TOTAL</th><th>STATUS</th><th>ACTION</th></tr></thead><tbody id="admin-orders"></tbody></table></div>
+        <div class="empty-state hidden" id="no-orders">No orders to show yet.</div>
+      </section>
+
+      <section class="panel menu-panel" id="menu">
+        <div class="panel-heading"><div><p class="eyebrow">CATALOG</p><h2>Menu management</h2></div><button class="primary-button" id="add-menu-item">＋ Add menu item</button></div>
+        <div class="menu-list" id="admin-menu"></div>
+      </section>
+
+      <section class="panel students-panel" id="students">
+        <div class="panel-heading"><div><p class="eyebrow">STUDENT ACCOUNTS</p><h2>Recent students</h2></div></div>
+        <div id="admin-students" class="student-list"></div>
+        <div class="empty-state" id="no-students">Student profiles will appear here when connected to the student database.</div>
+      </section>
+      <footer>© 2026 TamBayts <span>Admin workspace</span></footer>
+    </main>
+  </div>
+  <div class="toast" id="admin-toast" role="status" aria-live="polite"></div>
+  <script src="app-data.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>

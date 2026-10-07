@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TamBayts | Profile</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="app-shell simple-page">
+      <header class="hero compact-hero">
+        <a class="brand" href="index.html">TamBayts</a>
+      </header>
+
+      <section class="page-content profile-page">
+        <p class="eyebrow">Student account</p>
+        <h1>My profile</h1>
+
+        <div class="profile-card">
+          <div class="avatar">SN</div>
+          <div>
+            <h2 id="profile-name">Student Name</h2>
+            <p id="profile-course">Campus Student · 2026</p>
+          </div>
+          <button id="edit-profile" type="button">Edit</button>
+        </div>
+
+        <h2 class="subheading" id="favorites">Your favorites</h2>
+        <div class="saved-list" id="saved-list"></div>
+
+        <h2 class="subheading">Quick settings</h2>
+        <div class="settings-list" id="settings-list">
+          <button data-setting="Payment">Payment methods <span>›</span></button>
+          <button data-setting="Notification">Notifications <span>›</span></button>
+          <button data-setting="Help and support">Help &amp; support <span>›</span></button>
+        </div>
+      </section>
+
+      <nav class="bottom-nav" aria-label="Main navigation">
+        <a class="nav-item active" href="profile.html" aria-label="Profile"><span>◉</span></a>
+        <a class="nav-item" href="#favorites" aria-label="Favorites"><span>★</span></a>
+        <a class="nav-item" href="index.html" aria-label="Home"><span>⌂</span></a>
+        <a class="nav-item" href="orders.html" aria-label="Orders"><span>▤</span></a>
+        <a class="nav-item cart-nav" href="cart.html" aria-label="Cart">
+          <span>🛒</span>
+          <b class="cart-badge">0</b>
+        </a>
+      </nav>
+    </main>
+
+    <div class="toast" id="toast" role="status"></div>
+    <script src="app-data.js"></script>
+    <script src="pages.js"></script>
+  </body>
+</html>
