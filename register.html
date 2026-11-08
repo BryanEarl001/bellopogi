@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f5f7f3">
+    <title>Student registration | TamBayts</title>
+    <link rel="icon" type="image/png" sizes="128x128" href="images/feu-roosevelt-favicon.png?v=20261103-1">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    >
+    <link rel="stylesheet" href="css/auth.css?v=20261103-1">
+  </head>
+  <body class="register-page auth-light">
+    <main class="auth-shell">
+      <a class="brand" href="index.html"><img class="brand-mark" src="images/feu-roosevelt-logo.png?v=20261103-1" alt="FEU Roosevelt Cainta logo">TamBayts</a>
+
+      <section class="auth-card">
+        <p class="eyebrow">STUDENT ACCOUNT</p>
+        <h1>Create your account</h1>
+        <p class="subhead">Use your account to place orders and follow their status.</p>
+
+        <form id="register-form">
+          <label>
+            <span>Full name <span class="required-mark" aria-hidden="true">*</span></span>
+            <input
+              name="name"
+              autocomplete="name"
+              maxlength="120"
+              placeholder="Your name"
+              required
+            >
+          </label>
+          <label>
+            <span>School email <span class="required-mark" aria-hidden="true">*</span></span>
+            <input
+              name="email"
+              type="email"
+              autocomplete="email"
+              placeholder="you@gmail.com"
+              required
+            >
+          </label>
+          <label>
+            Department <small>Optional</small>
+            <select name="department" id="student-department">
+              <option value="">Choose a department</option>
+              <option value="Junior High School">Junior High School</option>
+              <option value="Senior High School">Senior High School</option>
+              <option value="Tertiary Education">Tertiary Education</option>
+            </select>
+          </label>
+          <label id="student-grade-field" style="display:none">
+            Grade level <small>Optional</small>
+            <select id="student-grade" disabled>
+              <option value="">Choose a grade</option>
+            </select>
+          </label>
+          <label id="student-program-field" style="display:none">
+            Strand or course <small>Optional</small>
+            <select id="student-program" disabled>
+              <option value="">Choose a strand or course</option>
+            </select>
+          </label>
+          <input type="hidden" name="course" id="student-course">
+          <label>
+            <span>Password <span class="required-mark" aria-hidden="true">*</span></span>
+            <input
+              name="password"
+              type="password"
+              autocomplete="new-password"
+              minlength="8"
+              placeholder="At least 8 characters"
+              required
+            >
+          </label>
+
+          <p class="form-error" id="auth-error" role="alert"></p>
+          <button class="submit-button" type="submit">
+            Create student account <span>→</span>
+          </button>
+        </form>
+
+        <p class="auth-footer">
+          Already registered? <a href="login.html">Sign in</a>
+        </p>
+      </section>
+
+    </main>
+
+    <script src="js/auth.js?v=20261102-4"></script>
+  </body>
+</html>

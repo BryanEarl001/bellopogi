@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f5f0">
+  <title>TamBayts | Admin dashboard</title>
+  <link rel="icon" type="image/png" sizes="128x128" href="images/feu-roosevelt-favicon.png?v=20261103-1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=DM+Serif+Display&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/admin.css?v=20261108-7">
+</head>
+<body>
+  <div class="admin-layout">
+    <aside class="sidebar">
+      <a class="wordmark" href="index.html"><img class="brand-mark" src="images/feu-roosevelt-logo.png?v=20261103-1" alt="FEU Roosevelt Cainta logo"> TamBayts</a>
+      <p class="side-label">MANAGEMENT</p>
+      <a class="side-link active" href="#overview"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 10 9-7 9 7M5 9v12h14V9M9 21v-7h6v7"></path></svg> Overview</a>
+      <a class="side-link" href="#orders"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2V3Z"></path><path d="M9 8h6m-6 4h6m-6 4h4"></path></svg> Orders <b id="nav-order-count" hidden></b></a>
+      <a class="side-link" href="#menu"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3v6m-3-6v4a3 3 0 0 0 6 0V3M5 10v11M17 3v18m0-18c2 2 3 5 3 8h-3"></path></svg> Menu</a>
+      <a class="side-link" href="#students"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3.5"></circle><path d="M5.5 20c.5-3.3 3-5.3 6.5-5.3s6 2 6.5 5.3"></path></svg> Students</a>
+      <div class="sidebar-bottom"><div class="admin-account-label"><strong>Administrator</strong></div><button type="button" id="sign-out" class="sign-out-button">Sign out</button></div>
+    </aside>
+
+    <main class="dashboard" id="overview">
+      <header class="topbar"><div><p class="eyebrow">TAMBAYTS MANAGEMENT</p><h1>Admin dashboard</h1></div></header>
+      <section class="welcome"><div><p class="welcome-kicker">CAMPUS CANTEEN</p><h2>Good day, Admin</h2><p>Manage orders and keep the student menu up to date.</p></div></section>
+
+      <section class="stats" aria-label="Store summary">
+        <article class="stat-card"><div class="stat-icon orders-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2V3Z"></path><path d="M9 8h6m-6 4h6m-6 4h4"></path></svg></div><span>Orders today</span><strong id="stat-orders">0</strong></article>
+        <article class="stat-card"><div class="stat-icon revenue-icon">₱</div><span>Sales today</span><strong id="stat-sales">₱0</strong></article>
+        <article class="stat-card"><div class="stat-icon menu-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3v6m-3-6v4a3 3 0 0 0 6 0V3M5 10v11M17 3v18m0-18c2 2 3 5 3 8h-3"></path></svg></div><span>Available menu items</span><strong id="stat-menu">0</strong></article>
+        <article class="stat-card"><div class="stat-icon student-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3.5"></circle><path d="M5.5 20c.5-3.3 3-5.3 6.5-5.3s6 2 6.5 5.3"></path></svg></div><span>Student accounts</span><strong id="stat-students">0</strong></article>
+      </section>
+
+      <section class="panel order-panel" id="orders">
+        <div class="panel-heading"><div><p class="eyebrow">LIVE QUEUE</p><h2>Recent orders</h2></div><span class="live-indicator"><i></i> Order queue</span></div>
+        <div class="table-wrap"><table><thead><tr><th>ORDER</th><th>STUDENT</th><th>ITEMS</th><th>TOTAL</th><th>PAYMENT</th><th>STATUS</th><th>ACTION</th></tr></thead><tbody id="admin-orders"></tbody></table></div>
+        <div class="empty-state hidden" id="no-orders">No orders to show yet.</div>
+      </section>
+
+      <section class="panel menu-panel" id="menu">
+        <div class="panel-heading"><div><p class="eyebrow">CATALOG</p><h2>Menu management</h2></div><button class="primary-button" id="add-menu-item">＋ Add menu item</button></div>
+        <div class="menu-list" id="admin-menu"></div>
+        <div class="empty-state hidden" id="no-menu-items">Your menu is empty. Add a food item to get started.</div>
+      </section>
+
+      <section class="panel students-panel" id="students">
+        <div class="panel-heading"><div><p class="eyebrow">STUDENT ACCOUNTS</p><h2>Recent students</h2></div></div>
+        <div id="admin-students" class="student-list"></div>
+        <div class="empty-state" id="no-students">Student profiles will appear here when connected to the student database.</div>
+      </section>
+    </main>
+  </div>
+  <dialog class="menu-dialog" id="menu-item-dialog" aria-labelledby="add-menu-title">
+    <form id="menu-item-form" class="menu-form" enctype="multipart/form-data">
+      <div class="dialog-heading"><div><p class="eyebrow">MENU CATALOG</p><h2 id="add-menu-title">Add a food item</h2></div><button class="dialog-close" type="button" id="cancel-add-menu-item" aria-label="Close">×</button></div>
+      <label>Food name<input name="name" maxlength="120" required placeholder="e.g. Chicken Pastil"></label>
+      <div class="form-row">
+        <label>Price (₱)<input name="price" type="number" min="0" max="99999999.99" step="0.01" required placeholder="0.00"></label>
+        <label>Category<select name="category" required>
+          <option value="" selected disabled>Choose a category</option>
+          <option value="meals">Rice meals</option>
+          <option value="drinks">Drinks</option>
+          <option value="snacks">Snacks</option>
+          <option value="healthy">Healthy</option>
+          <option value="pasta">Pasta</option>
+        </select></label>
+      </div>
+      <label>Stall name<input name="stall" maxlength="80" value="Campus Stall" required></label>
+      <div class="menu-image-field">
+        <span class="menu-image-label">Food photo <small>Optional</small></span>
+        <div class="image-dropzone" id="menu-image-dropzone" role="button" tabindex="0" aria-label="Add a food photo by dropping a file or browsing">
+          <input id="menu-image" name="image" type="file" accept="image/jpeg,image/png,image/webp" hidden>
+          <div class="image-dropzone-copy"><strong id="menu-image-title">Drop a photo here or browse</strong><span id="menu-image-name">JPEG, PNG, or WebP · up to 5 MB</span></div>
+          <img id="menu-image-preview" alt="Selected food photo preview" hidden>
+        </div>
+      </div>
+      <div class="dialog-actions"><button class="secondary-button" id="cancel-add-menu-item-secondary" type="button">Cancel</button><button class="primary-button" type="submit">Save to menu</button></div>
+    </form>
+  </dialog>
+  <dialog class="menu-dialog" id="remove-menu-dialog" aria-labelledby="remove-menu-title">
+    <form id="remove-menu-form" class="menu-form">
+      <div class="dialog-heading"><div><p class="eyebrow">MENU CATALOG</p><h2 id="remove-menu-title">Remove this food?</h2></div><button class="dialog-close" type="button" id="close-remove-menu" aria-label="Close">×</button></div>
+      <p class="remove-confirm-copy">Are you sure you want to remove <strong id="remove-menu-name"></strong> from the menu? Existing order records will be kept.</p>
+      <div class="dialog-actions"><button class="secondary-button" id="cancel-remove-menu" type="button">Cancel</button><button class="danger-button" id="confirm-remove-menu" type="submit">Remove food</button></div>
+    </form>
+  </dialog>
+  <dialog class="menu-dialog" id="delete-order-dialog" aria-labelledby="delete-order-title">
+    <div class="menu-form">
+      <div class="dialog-heading"><div><p class="eyebrow">RECENT ORDERS</p><h2 id="delete-order-title">Delete this order?</h2></div><button class="dialog-close" type="button" id="close-delete-order" aria-label="Close">×</button></div>
+      <p class="remove-confirm-copy" id="delete-order-copy">Are you sure you want to remove this order? This action cannot be undone.</p>
+      <div class="dialog-actions"><button class="secondary-button" id="cancel-delete-order" type="button">Cancel</button><button class="danger-button" id="confirm-delete-order" type="button">Remove order</button></div>
+    </div>
+  </dialog>
+  <dialog class="menu-dialog" id="sign-out-dialog" aria-labelledby="sign-out-title">
+    <div class="menu-form">
+      <div class="dialog-heading"><div><p class="eyebrow">ACCOUNT</p><h2 id="sign-out-title">Sign out?</h2></div></div>
+      <p class="remove-confirm-copy">Are you sure you want to sign out of your account?</p>
+      <div class="dialog-actions"><button class="secondary-button" id="cancel-sign-out" type="button">Cancel</button><button class="primary-button" id="confirm-sign-out" type="button">Sign out</button></div>
+    </div>
+  </dialog>
+  <div class="toast" id="admin-toast" role="status" aria-live="polite"></div>
+  <script src="js/app-data.js?v=20261108-2"></script>
+  <script src="js/auth.js?v=20261108-3"></script>
+  <script src="js/admin.js?v=20261108-5"></script>
+</body>
+</html>

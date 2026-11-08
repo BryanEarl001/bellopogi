@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TamBayts | Cart</title>
+    <link rel="icon" type="image/png" sizes="128x128" href="images/feu-roosevelt-favicon.png?v=20261103-1" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css?v=20261103-6" />
+  </head>
+  <body data-auth="student">
+    <main class="app-shell simple-page">
+      <header class="hero compact-hero">
+        <div class="brand-lockup">
+          <a class="brand" href="index.html"><img class="brand-mark" src="images/feu-roosevelt-logo.png?v=20261103-1" alt="FEU Roosevelt Cainta logo">TamBayts</a>
+        </div>
+        <nav class="desktop-links" aria-label="Account navigation">
+          <a href="index.html">Foods</a>
+          <a href="orders.html">My orders</a>
+          <a class="desktop-cart current-page" href="cart.html" aria-current="page">Cart <b id="cart-badge" class="cart-count">0</b></a>
+        </nav>
+      </header>
+
+      <section class="page-content cart-page">
+        <div id="cart-edit-view">
+          <p class="eyebrow">Almost there</p>
+          <h1>Your cart</h1>
+          <div class="cart-list" id="cart-page-items"></div>
+
+          <div class="order-summary" id="cart-order-summary" hidden>
+            <div>
+              <span>Subtotal</span>
+              <strong id="cart-page-total">₱0</strong>
+            </div>
+            <button id="review-order" type="button">Review order</button>
+          </div>
+        </div>
+
+        <section class="order-review" id="order-review" hidden aria-labelledby="order-review-title">
+          <button class="profile-back" id="back-to-cart" type="button">‹ Back to cart</button>
+          <p class="eyebrow">CHECK BEFORE PLACING</p>
+          <h1 id="order-review-title">Review your order</h1>
+          <div class="order-review-list" id="order-review-items"></div>
+          <a class="add-more-foods" href="index.html#food-grid">＋ Add more foods</a>
+          <div class="payment-method-card">
+            <span class="payment-cash-icon" aria-hidden="true">₱</span>
+            <span class="payment-method-copy"><small>Payment method</small><strong>Cash on pickup</strong><small>Pay at the canteen when you collect your order.</small></span>
+          </div>
+          <div class="order-review-total"><span>Total</span><strong id="review-order-total">₱0</strong></div>
+          <button class="confirm-order-button" id="confirm-place-order" type="button">Confirm and place order</button>
+        </section>
+      </section>
+
+      <nav class="bottom-nav" aria-label="Main navigation">
+        <a class="nav-item" href="profile.html" aria-label="Profile"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3.5"></circle><path d="M5.5 20c.5-3.3 3-5.3 6.5-5.3s6 2 6.5 5.3"></path></svg><small class="nav-label">Profile</small></a>
+        <a class="nav-item" href="profile.html?view=favorites" aria-label="Favorites"><span>★</span><small class="nav-label">Favorites</small></a>
+        <a class="nav-item" href="index.html" aria-label="Foods"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3v6m-3-6v4a3 3 0 0 0 6 0V3M5 10v11M17 3v18m0-18c2 2 3 5 3 8h-3"></path></svg><small class="nav-label">Foods</small></a>
+        <a class="nav-item" href="orders.html" aria-label="Orders"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2V3Z"></path><path d="M9 8h6m-6 4h6m-6 4h4"></path></svg><small class="nav-label">Orders</small><b class="order-badge" hidden></b></a>
+        <a class="nav-item cart-nav active" href="cart.html" aria-label="Cart">
+          <span>🛒</span>
+          <small class="nav-label">Cart</small>
+          <b class="cart-badge">0</b>
+        </a>
+      </nav>
+    </main>
+
+    <div class="toast" id="toast" role="status"></div>
+    <script src="js/app-data.js?v=20261108-2"></script>
+    <script src="js/auth.js?v=20261108-3"></script>
+    <script src="js/pages.js?v=20261108-2"></script>
+  </body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#17633e" />
+    <title>TamBayts | Campus food made easy</title>
+    <link rel="icon" type="image/png" sizes="128x128" href="images/feu-roosevelt-favicon.png?v=20261103-1" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css?v=20261103-6" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="hero">
+        <div class="brand-lockup">
+          <a class="brand" href="#top" aria-label="TamBayts home"><img class="brand-mark" src="images/feu-roosevelt-logo.png?v=20261103-1" alt="FEU Roosevelt Cainta logo">TamBayts</a>
+        </div>
+        <nav class="desktop-links" aria-label="Account navigation">
+          <a class="current-page" href="index.html" aria-current="page">Foods</a>
+          <a href="orders.html">My orders</a>
+          <a class="desktop-cart" href="cart.html">Cart <b id="cart-badge" class="cart-count">0</b></a>
+        </nav>
+      </header>
+
+      <section class="content" id="top">
+        <div class="search-box">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="11" cy="11" r="6.5"></circle>
+            <path d="m16 16 5 5"></path>
+          </svg>
+          <input
+            id="food-search"
+            type="search"
+            placeholder="Search food and drinks..."
+            aria-label="Search food and drinks"
+            autocomplete="off"
+          />
+          <button class="search-filter" id="filter-button" type="button">Sort by price <span>⌄</span></button>
+        </div>
+
+        <section class="promo-banner" aria-label="Campus lunch promotion">
+          <div class="promo-copy"><span class="promo-kicker">GOOD FOOD, NO WAIT</span><h2>Make lunch your favorite part of the day.</h2><p>Find campus meals, snacks and drinks, all in one place.</p><a href="#recommended-title">Explore the menu <span>→</span></a></div>
+          <div class="promo-photo" role="img" aria-label="Freshly prepared campus meal"></div>
+        </section>
+
+        <div class="category-row" aria-label="Food categories">
+          <button class="category active" data-category="all"><span>All</span></button>
+          <button class="category" data-category="meals"><span>Rice meals</span></button>
+          <button class="category" data-category="drinks"><span>Drinks</span></button>
+          <button class="category" data-category="snacks"><span>Snacks</span></button>
+          <button class="category" data-category="healthy"><span>Healthy</span></button>
+          <button class="category" data-category="pasta"><span>Pasta</span></button>
+        </div>
+      </section>
+
+      <section class="menu-section" aria-labelledby="recommended-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">★ Made for campus</p>
+            <h1 id="recommended-title">Recommended for you</h1>
+          </div>
+        </div>
+        <p class="results-message" id="results-message" aria-live="polite"></p>
+        <div class="food-grid" id="food-grid"></div>
+      </section>
+
+      <nav class="bottom-nav" aria-label="Main navigation">
+        <a class="nav-item" href="profile.html" aria-label="Profile">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3.5"></circle><path d="M5.5 20c.5-3.3 3-5.3 6.5-5.3s6 2 6.5 5.3"></path></svg>
+          <small class="nav-label">Profile</small>
+        </a>
+        <a class="nav-item" href="profile.html?view=favorites" aria-label="Favorites">
+          <span>★</span>
+          <small class="nav-label">Favorites</small>
+        </a>
+        <a class="nav-item active" href="index.html" aria-label="Foods">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3v6m-3-6v4a3 3 0 0 0 6 0V3M5 10v11M17 3v18m0-18c2 2 3 5 3 8h-3"></path></svg>
+          <small class="nav-label">Foods</small>
+        </a>
+        <a class="nav-item" href="orders.html" aria-label="Orders">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2V3Z"></path><path d="M9 8h6m-6 4h6m-6 4h4"></path></svg>
+          <small class="nav-label">Orders</small>
+          <b class="order-badge" hidden></b>
+        </a>
+        <a class="nav-item cart-nav" href="cart.html" aria-label="Cart">
+          <span>🛒</span>
+          <small class="nav-label">Cart</small>
+          <b class="cart-badge cart-count">0</b>
+        </a>
+      </nav>
+    </main>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="js/app-data.js?v=20261108-2"></script>
+    <script src="js/auth.js?v=20261108-3"></script>
+    <script src="js/index.js?v=20261108-4"></script>
+  </body>
+</html>

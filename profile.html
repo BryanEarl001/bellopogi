@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TamBayts | Profile</title>
+    <link rel="icon" type="image/png" sizes="128x128" href="images/feu-roosevelt-favicon.png?v=20261103-1" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css?v=20261108-1" />
+  </head>
+  <body data-auth="student">
+    <main class="app-shell simple-page">
+      <header class="hero compact-hero">
+        <div class="brand-lockup">
+          <a class="brand" href="index.html"><img class="brand-mark" src="images/feu-roosevelt-logo.png?v=20261103-1" alt="FEU Roosevelt Cainta logo">TamBayts</a>
+        </div>
+        <nav class="desktop-links" aria-label="Account navigation">
+          <a href="index.html">Foods</a>
+          <a href="orders.html">My orders</a>
+          <a class="desktop-cart" href="cart.html">Cart <b id="cart-badge" class="cart-count">0</b></a>
+        </nav>
+      </header>
+
+      <section class="page-content profile-page">
+        <p class="eyebrow">Student account</p>
+        <h1 id="profile-title">My profile</h1>
+
+        <div class="profile-card" id="profile-card">
+          <div>
+            <h2 id="profile-name">Student Name</h2>
+            <p id="profile-course">Campus Student · 2026</p>
+          </div>
+          <button id="view-profile" type="button" data-profile-view="details">View profile</button>
+        </div>
+
+        <nav class="profile-shortcuts" aria-label="Profile sections">
+          <button class="profile-shortcut" type="button" data-profile-view="favorites"><span aria-hidden="true">★</span><span><strong>Favorites</strong><small>View your saved meals</small></span></button>
+          <button class="profile-shortcut" type="button" data-profile-view="orders"><span aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2V3Z"></path><path d="M9 8h6m-6 4h6m-6 4h4"></path></svg></span><span><strong>Order history</strong><small>View your orders</small></span></button>
+        </nav>
+
+        <div id="profile-default-view">
+          <h2 class="subheading">General</h2>
+          <div class="settings-list" id="settings-list">
+            <button data-setting="Payment">Payment methods <span>›</span></button>
+            <button data-setting="Notification">Notifications <span>›</span></button>
+            <button data-setting="Help and support">Help &amp; support <span>›</span></button>
+            <button id="student-sign-out" type="button">Sign out <span>↗</span></button>
+          </div>
+        </div>
+
+        <section class="profile-detail-view" id="profile-favorites-view" hidden aria-labelledby="favorites-title">
+          <button class="profile-back" type="button" data-profile-view="overview">‹ Back to profile</button>
+          <h2 class="subheading" id="favorites-title">Your favorites</h2>
+          <div class="saved-list" id="saved-list"></div>
+        </section>
+
+        <section class="profile-detail-view" id="profile-orders-view" hidden aria-labelledby="profile-orders-title">
+          <button class="profile-back" type="button" data-profile-view="overview">‹ Back to profile</button>
+          <h2 class="subheading" id="profile-orders-title">Order history</h2>
+          <div id="profile-order-list"></div>
+        </section>
+
+        <section class="profile-detail-view" id="profile-details-view" hidden aria-labelledby="profile-details-title">
+          <button class="profile-back" type="button" data-profile-view="overview">‹ Back to profile</button>
+          <h2 class="subheading" id="profile-details-title">View profile</h2>
+          <div class="profile-read-view" id="profile-read-view">
+            <article class="profile-info-card">
+              <div class="profile-info-heading"><span>Name</span><button class="profile-edit-icon" type="button" data-edit-profile-field="name" aria-label="Edit name" title="Edit name"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M20 5 27 12M5 27l6-1 16-16a3 3 0 0 0-5-5L6 21z" /></svg></button></div>
+              <strong class="profile-info-value" id="profile-view-name"></strong>
+              <form class="profile-inline-form" data-profile-field="name" hidden>
+                <label class="visually-hidden" for="profile-edit-name">Name</label>
+                <input id="profile-edit-name" name="name" type="text" maxlength="120" required />
+                <div class="profile-form-actions"><button class="profile-cancel" type="button" data-cancel-profile-field="name">Cancel</button><button type="submit">Save</button></div>
+              </form>
+            </article>
+            <article class="profile-info-card">
+              <div class="profile-info-heading"><span>Course</span><button class="profile-edit-icon" type="button" data-edit-profile-field="course" aria-label="Edit course" title="Edit course"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M20 5 27 12M5 27l6-1 16-16a3 3 0 0 0-5-5L6 21z" /></svg></button></div>
+              <strong class="profile-info-value" id="profile-view-course"></strong>
+              <form class="profile-inline-form" data-profile-field="course" hidden>
+                <div class="profile-course-field">
+                  <label for="profile-edit-department">Department</label>
+                  <select id="profile-edit-department">
+                    <option value="">Choose a department</option>
+                    <option value="Junior High School">Junior High School</option>
+                    <option value="Senior High School">Senior High School</option>
+                    <option value="Tertiary Education">Tertiary Education</option>
+                  </select>
+                </div>
+                <div class="profile-course-field" id="profile-edit-grade-field" hidden>
+                  <label for="profile-edit-grade">Grade level</label>
+                  <select id="profile-edit-grade" disabled>
+                    <option value="">Choose a grade</option>
+                  </select>
+                </div>
+                <div class="profile-course-field" id="profile-edit-program-field" hidden>
+                  <label for="profile-edit-program">Strand or course</label>
+                  <select id="profile-edit-program" disabled>
+                    <option value="">Choose a strand or course</option>
+                  </select>
+                </div>
+                <input id="profile-edit-course" name="course" type="hidden" />
+                <div class="profile-form-actions"><button class="profile-cancel" type="button" data-cancel-profile-field="course">Cancel</button><button type="submit">Save</button></div>
+              </form>
+            </article>
+          </div>
+        </section>
+      </section>
+
+      <nav class="bottom-nav" aria-label="Main navigation">
+        <a class="nav-item active" href="profile.html" aria-label="Profile"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3.5"></circle><path d="M5.5 20c.5-3.3 3-5.3 6.5-5.3s6 2 6.5 5.3"></path></svg><small class="nav-label">Profile</small></a>
+        <a class="nav-item" href="profile.html?view=favorites" aria-label="Favorites"><span>★</span><small class="nav-label">Favorites</small></a>
+        <a class="nav-item" href="index.html" aria-label="Foods"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3v6m-3-6v4a3 3 0 0 0 6 0V3M5 10v11M17 3v18m0-18c2 2 3 5 3 8h-3"></path></svg><small class="nav-label">Foods</small></a>
+        <a class="nav-item" href="orders.html" aria-label="Orders"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2V3Z"></path><path d="M9 8h6m-6 4h6m-6 4h4"></path></svg><small class="nav-label">Orders</small><b class="order-badge" hidden></b></a>
+        <a class="nav-item cart-nav" href="cart.html" aria-label="Cart">
+          <span>🛒</span>
+          <small class="nav-label">Cart</small>
+          <b class="cart-badge">0</b>
+        </a>
+      </nav>
+    </main>
+
+    <div class="toast" id="toast" role="status"></div>
+    <dialog class="confirm-dialog" id="sign-out-dialog" aria-labelledby="sign-out-title">
+      <div class="confirm-dialog-content">
+        <h2 id="sign-out-title">Sign out?</h2>
+        <p>Are you sure you want to sign out of your account?</p>
+        <div class="confirm-dialog-actions">
+          <button class="confirm-cancel" id="cancel-sign-out" type="button">Cancel</button>
+          <button class="confirm-accept" id="confirm-sign-out" type="button">Sign out</button>
+        </div>
+      </div>
+    </dialog>
+    <script src="js/app-data.js?v=20261108-2"></script>
+    <script src="js/auth.js?v=20261108-3"></script>
+    <script src="js/pages.js?v=20261108-2"></script>
+  </body>
+</html>

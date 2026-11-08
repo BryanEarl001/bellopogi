@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f5f7f3">
+    <title>Sign in | TamBayts</title>
+    <link rel="icon" type="image/png" sizes="128x128" href="images/feu-roosevelt-favicon.png?v=20261103-1">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=DM+Serif+Display&display=swap"
+      rel="stylesheet"
+    >
+    <link rel="stylesheet" href="css/auth.css?v=20261103-1">
+  </head>
+  <body class="login-page auth-light">
+    <main class="auth-shell">
+      <a class="brand" href="index.html"><img class="brand-mark" src="images/feu-roosevelt-logo.png?v=20261103-1" alt="FEU Roosevelt Cainta logo">TamBayts</a>
+
+      <section class="auth-card">
+        <p class="eyebrow">CAMPUS FOOD ORDERING</p>
+        <h1>Welcome back</h1>
+        <p class="subhead">Sign in to order food or manage the campus menu.</p>
+
+        <form id="login-form" autocomplete="off">
+          <label>
+            <span>Email <span class="required-mark" aria-hidden="true">*</span></span>
+            <input
+              name="email"
+              type="email"
+              autocomplete="username"
+              placeholder="you@gmail.com"
+              required
+            >
+          </label>
+
+          <label>
+            <span>Password <span class="required-mark" aria-hidden="true">*</span></span>
+            <div class="password-row">
+              <input
+                name="password"
+                type="password"
+                autocomplete="off"
+                placeholder="Enter your password"
+                required
+              >
+              <button type="button" class="reveal" aria-label="Show password">◉</button>
+            </div>
+          </label>
+
+          <p class="form-error" id="auth-error" role="alert"></p>
+          <button class="submit-button" type="submit">
+            Sign in <span>→</span>
+          </button>
+        </form>
+
+        <p class="auth-footer">
+          New student? <a href="register.html">Create an account</a>
+        </p>
+      </section>
+
+    </main>
+
+    <script src="js/auth.js?v=20261103-1"></script>
+  </body>
+</html>
